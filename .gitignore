@@ -1,0 +1,6 @@
+config.py
+.idea/
+*.iml
+.pytest_cache/
+pytest-cache-files*
+__pycache__/
