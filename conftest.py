@@ -1,6 +1,7 @@
 # In case you want to open browser before each class
 import pytest
 
+from pages.CartPage import CartPage
 from pages.InventoryPage import InventoryPage
 from pages.LoginPage import LoginPage
 
@@ -35,7 +36,7 @@ def setup_inventory_page(request, browser):
     request.cls.page = page
     request.cls.login_page = LoginPage(page)
     request.cls.inventory_page = InventoryPage(page)
+    request.cls.cart_page = CartPage(page)
 
     yield
     page.close()
-    browser.close()

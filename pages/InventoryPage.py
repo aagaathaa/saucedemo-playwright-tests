@@ -25,9 +25,11 @@ class InventoryPage(BasePage):
                     config.ADD_TO_CART_BTN
                 ).click()
 
-                print("Product found")
-
                 return
 
-        print("Product not found")
+        raise AssertionError(
+            f"Product '{product_name}' not found"
+        )
+
+
 

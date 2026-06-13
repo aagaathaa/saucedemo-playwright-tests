@@ -1,0 +1,5 @@
+services:
+  tests:
+    build: .
+    container_name: automation_project
+    command: pytest -v
