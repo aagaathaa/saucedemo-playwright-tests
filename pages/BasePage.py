@@ -26,7 +26,8 @@ class BasePage:
         text = self.page.locator(locator).inner_text()
         return text
 
-    def print_actual_exepected(self, actual_error, expected_error):
-        print("\n===== Error Validation =====")
-        print(f"Actual:   '{actual_error}'")
-        print(f"Expected: '{expected_error}'")
+    @staticmethod
+    def print_actual_expected(actual_error, expected_error):
+        print("\n==== Error Validation ====")
+        print(f"Actual:   {actual_error}")
+        print(f"Expected: {expected_error}")

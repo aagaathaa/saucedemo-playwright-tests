@@ -3,11 +3,12 @@ from playwright.sync_api import Page
 import config
 from pages.BasePage import BasePage
 
+
 class LoginPage(BasePage):
     def __init__(self, page: Page):
         super().__init__(page)
 
-    #Errors
+    # Errors
     EXPECTED_LOCKED_OUT_ERROR = \
         "Epic sadface: Sorry, this user has been locked out."
     EXPECTED_DONT_MATCH_ERROR = \
@@ -32,4 +33,4 @@ class LoginPage(BasePage):
         self.click(config.LOGIN_BUTTON)
 
     def get_error_message(self):
-        return self.get_text(config.ERROR_MESSAGE)
+        return self.get_text(config.ERROR_MESSAGE_LOGIN)

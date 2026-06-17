@@ -15,7 +15,7 @@ LOCKED_OUT_USERNAME = "locked_out_user"
 USERNAME_FIELD = "#user-name"
 PASSWORD_FIELD = "#password"
 LOGIN_BUTTON = "#login-button"
-ERROR_MESSAGE = ".error-message-container"
+ERROR_MESSAGE_LOGIN = ".error-message-container"
 
 
 # =========================
@@ -47,8 +47,35 @@ CONTINUE_TO_SHOPPING_BTN = "#continue-shopping"
 # Checkout Page
 # =========================
 
+FIRST_NAME_FIELD = "#first-name"
+LAST_NAME_FIELD = "#last-name"
+POST_CODE_FIELD = "#postal-code"
+CONTINUE_BTN = "#continue"
+CANCEL_BTN = "#cancel"
 
+VALID_FIRST_NAME = "Agatha"
+VALID_LAST_NAME = "Cohen"
+VALID_POST_CODE = "2345652"
 
+EMPTY_FIRST_NAME = ""
+EMPTY_LAST_NAME = ""
+EMPTY_POST_CODE = ""
+
+LONG_FIRST_NAME = "A" * 100
+LONG_LAST_NAME = "B" * 100
+LONG_POST_CODE = "1" * 100
+
+SPECIAL_FIRST_NAME = "@@@"
+SPECIAL_LAST_NAME = "###"
+SPECIAL_POST_CODE = "!@#$%"
+
+NUMERIC_FIRST_NAME = "12345"
+NUMERIC_LAST_NAME = "67890"
+
+UNICODE_FIRST_NAME = "Агата"
+UNICODE_LAST_NAME = "כהן"
+
+ERROR_MESSAGE_CHECKOUT = "[data-test='error']"
 # =========================
 # Checkout Overview Page
 # =========================

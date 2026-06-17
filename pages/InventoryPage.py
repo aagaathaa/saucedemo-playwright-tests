@@ -3,10 +3,10 @@ from playwright.sync_api import Page
 import config
 from pages.BasePage import BasePage
 
+
 class InventoryPage(BasePage):
     def __init__(self, page: Page):
         super().__init__(page)
-
 
     def add_to_cart(self, product_name):
         items = self.page.locator(config.INVENTORY_ITEM)
@@ -18,7 +18,7 @@ class InventoryPage(BasePage):
                 config.INVENTORY_ITEM_NAME
             ).inner_text()
 
-            print(title)
+            # print(title)
 
             if title == product_name:
                 item.locator(
@@ -30,6 +30,3 @@ class InventoryPage(BasePage):
         raise AssertionError(
             f"Product '{product_name}' not found"
         )
-
-
-
