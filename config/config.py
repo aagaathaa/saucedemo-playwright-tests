@@ -1,4 +1,13 @@
 # =========================
+# General
+# =========================
+
+BASE_URL = "https://www.saucedemo.com/"
+INVENTORY_URL = "https://www.saucedemo.com/inventory.html"
+CART_URL = "https://www.saucedemo.com/cart.html"
+CHECKOUT_URL = "https://www.saucedemo.com/checkout-step-one.html"
+
+# =========================
 # Users data
 # =========================
 

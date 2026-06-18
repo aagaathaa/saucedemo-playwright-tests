@@ -1,13 +1,12 @@
 import pytest
 
-import config
-from tests.base_test import BaseTest
+from config import config
+from framework.base_test import BaseTest
 
 
 @pytest.mark.usefixtures("setup_inventory_page")
-class TestCartFlow(BaseTest):
+class TestCart(BaseTest):
     def test_01_add_to_cart(self):
-        self.login_page.standard_user()
         self.inventory_page.add_to_cart("Sauce Labs Fleece Jacket")
         assert self.cart_page.count_badge() == 1
 
@@ -24,15 +23,14 @@ class TestCartFlow(BaseTest):
         assert self.cart_page.is_product_in_cart("Sauce Labs Fleece Jacket")
         assert self.cart_page.count_badge() == 2
 
-    def test_04_valid_checkout(self):
-        self.cart_page.checkout()
-        self.checkout_page.fill_user_info(config.VALID_FIRST_NAME, config.VALID_LAST_NAME, config.VALID_POST_CODE)
-        self.checkout_page.continue_checkout()
-        self.checkout_page.cancel_checkout()
+    def test_04_remove_one_product_from_multiple(self):
+        self.cart_page.remove_product("Sauce Labs Bolt T-Shirt")
+        assert self.cart_page.count_badge() == 1
+        self.cart_page.continue_shopping()
+        assert self.cart_page.count_badge() == 1
 
-    def test_05_empty_checkout(self):
-        self.cart_page.open_cart()
-        self.cart_page.checkout()
-        self.checkout_page.fill_user_info(config.EMPTY_FIRST_NAME, config.VALID_LAST_NAME, config.VALID_POST_CODE)
-        self.checkout_page.continue_checkout()
-        assert self.checkout_page.get_error_message() == self.checkout_page.EXPECTED_ERROR_EMPTY_FN
+    def test_05_cart_badge_updates(self):
+        self.inventory_page.add_to_cart("Sauce Labs Bike Light")
+        assert self.cart_page.count_badge() == 2
+        self.inventory_page.add_to_cart("Sauce Labs Onesie")
+        assert self.cart_page.count_badge() == 3
