@@ -43,7 +43,3 @@ class CheckoutPage(BasePage):
 
     def get_error_message(self):
         return self.get_text(config.ERROR_MESSAGE_CHECKOUT)
-
-    def reopen_checkout(self):
-        self.checkout_page.cancel_checkout()
-        self.cart_page.checkout()
