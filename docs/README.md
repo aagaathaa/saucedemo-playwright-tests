@@ -96,6 +96,7 @@ BasePage contains reusable Playwright methods used across all pages.
 * Add product to cart
 * Remove product from cart
 * Add multiple products
+* Remove one product from cart
 * Cart badge validation
 
 ### Checkout
@@ -186,7 +187,13 @@ pytest --headed
 ```
 
 ---
+Run with headed browser and slow:
 
+```bash
+pytest --headed --slowmo 1000
+```
+
+---
 ## Docker
 
 Build image:
