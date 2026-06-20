@@ -4,7 +4,7 @@ from config import config
 from framework.base_test import BaseTest
 
 
-@pytest.mark.usefixtures("setup_inventory_page")
+@pytest.mark.usefixtures("setup_inventory_and_cart")
 class TestCart(BaseTest):
     def test_01_add_to_cart(self):
         self.inventory_page.add_to_cart("Sauce Labs Fleece Jacket")

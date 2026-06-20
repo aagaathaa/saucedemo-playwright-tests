@@ -1,6 +1,6 @@
 import pytest
 
-from tests.base_test import BaseTest
+from framework.base_test import BaseTest
 
 
 @pytest.mark.usefixtures("setup_login_page")

@@ -1,12 +1,16 @@
 from playwright.sync_api import Page
 
-import config
+from config import config
 from pages.BasePage import BasePage
 
 
 class CartPage(BasePage):
     def __init__(self, page: Page):
         super().__init__(page)
+
+
+    def is_open(self):
+        return self.page.url == config.CART_URL
 
     def open_cart(self):
         self.page.locator(config.SHOPPING_CART_CONTAINER).click()
@@ -55,3 +59,6 @@ class CartPage(BasePage):
 
     def checkout(self):
         self.click(config.CHECKOUT_BTN)
+
+    def cancel_checkout(self):
+        self.click(config.CANCEL_BTN_CHECKOUT)

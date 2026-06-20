@@ -19,11 +19,20 @@ class OverviewPage(BasePage):
     def cancel_order(self):
         self.click(config.CANCEL_BTN_OVERVIEW)
 
+    def payment_info_label(self):
+        return self.get_text(config.LABEL_PAYMENT_INFO)
+
     def get_payment_info(self):
         return self.get_text(config.PAYMENT_INFO_VALUE)
 
+    def shipping_info_label(self):
+        return self.get_text(config.LABEL_SHIPPING_INFO)
+
     def get_shipping_info(self):
         return self.get_text(config.SHIPPING_INFO_VALUE)
+
+    def price_total_label(self):
+        return self.get_text(config.LABEL_PRICE_TOTAL)
 
     def get_summary_total(self):
         total = self.get_text(config.SUMMARY_TOTAL)
@@ -57,3 +66,9 @@ class OverviewPage(BasePage):
 
     def extract_price(self, text):
         return float(re.search(r"\d+\.\d+", text).group())
+
+    def get_desc_product(self):
+        return self.get_text(config.DESC_PRODUCT)
+
+    def quantity(self):
+        return self.get_text(config.CART_QUANTITY)

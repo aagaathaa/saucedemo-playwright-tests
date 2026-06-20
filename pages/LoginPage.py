@@ -1,12 +1,15 @@
 from playwright.sync_api import Page
 
-import config
+from config import config
 from pages.BasePage import BasePage
 
 
 class LoginPage(BasePage):
     def __init__(self, page: Page):
         super().__init__(page)
+
+    def is_open(self):
+        return self.page.url == config.BASE_URL
 
     # Errors
     EXPECTED_LOCKED_OUT_ERROR = \

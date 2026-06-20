@@ -9,9 +9,15 @@ class BasePage:
     def page(self):
         return self.__page
 
+    def locator(self, locator):
+        return self.page.locator(locator)
+
     def fill_text(self, locator, text):
         self.page.locator(locator).highlight()
         self.page.locator(locator).fill(text)
+
+    def clear_text(self, locator):
+        self.page.locator(locator).clear()
 
     def click(self, locator):
         self.page.locator(locator).highlight()

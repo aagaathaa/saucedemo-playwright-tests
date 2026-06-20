@@ -1,12 +1,15 @@
 from playwright.sync_api import Page
 
-import config
+from config import config
 from pages.BasePage import BasePage
 
 
 class InventoryPage(BasePage):
     def __init__(self, page: Page):
         super().__init__(page)
+
+    def is_open(self):
+        return self.page.url == config.INVENTORY_URL
 
     def add_to_cart(self, product_name):
         items = self.page.locator(config.INVENTORY_ITEM)
