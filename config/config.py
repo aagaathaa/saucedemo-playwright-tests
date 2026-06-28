@@ -9,6 +9,10 @@ CHECKOUT_URL = "https://www.saucedemo.com/checkout-step-one.html"
 OVERVIEW_URL = "https://www.saucedemo.com/checkout-step-two.html"
 ORDER_COMPLETE_URL = "https://www.saucedemo.com/checkout-complete.html"
 
+TWITTER_LINK = "https://x.com/saucelabs"
+FACEBOOK_LINK = "https://www.facebook.com/saucelabs"
+LINKDIN_LINK = "https://www.linkedin.com/company/sauce-labs/"
+
 # =========================
 # Users data
 # =========================

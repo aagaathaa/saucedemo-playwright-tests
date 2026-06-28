@@ -1,4 +1,14 @@
-# SauceDemo Playwright Test Automation Framework
+<p align="center">
+  <img src="swaglabs.png" alt="Swag Labs Logo" width="400">
+</p>
+
+<h1 align="center">
+SauceDemo Playwright Test Automation Framework
+</h1>
+
+<p align="center">
+Page Object Model • Playwright • Pytest • GitHub Actions • Docker
+</p>
 
 ## Overview
 
