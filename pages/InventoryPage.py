@@ -1,3 +1,5 @@
+import allure
+
 from playwright.sync_api import Page
 
 from config import config
@@ -11,6 +13,7 @@ class InventoryPage(BasePage):
     def is_open(self):
         return self.page.url == config.INVENTORY_URL
 
+    @allure.step("Add product '{product_name}' to the shopping cart")
     def add_to_cart(self, product_name):
         items = self.page.locator(config.INVENTORY_ITEM)
 
@@ -20,8 +23,6 @@ class InventoryPage(BasePage):
             title = item.locator(
                 config.INVENTORY_ITEM_NAME
             ).inner_text()
-
-            # print(title)
 
             if title == product_name:
                 item.locator(

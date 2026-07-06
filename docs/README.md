@@ -15,6 +15,7 @@ SauceDemo Playwright Test Automation Framework
 ![Pytest](https://img.shields.io/badge/Pytest-Testing-0A9EDC)
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-CI-black)
 ![Docker](https://img.shields.io/badge/Docker-2496ED)
+![Tests](https://github.com/aagaathaa/saucedemo-playwright-tests/actions/workflows/playwright.yml/badge.svg)
 
 </p>
 
@@ -251,6 +252,40 @@ pytest --headed
 
 ```bash
 pytest --headed --slowmo 1000
+```
+
+---
+
+## Allure Report
+
+This project uses **Allure Report** for advanced test reporting and execution analysis.
+
+The report includes:
+
+- Test execution overview
+- Features and stories
+- Severity levels
+- Step-by-step execution
+- Test suites
+- Execution timeline
+- Historical trends (when history is preserved)
+
+### Generate Allure Report
+
+Run the helper script:
+
+```bash
+./run_allure.sh
+```
+
+Or generate the report manually:
+
+```bash
+pytest --alluredir=allure-results
+
+allure generate allure-results -o allure-report --clean
+
+allure open allure-report
 ```
 
 ---

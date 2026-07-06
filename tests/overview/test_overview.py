@@ -1,10 +1,17 @@
+import allure
 import pytest
 
 from config import config
 from framework.base_test import BaseTest
 
+
+@allure.feature("Checkout Overview")
 @pytest.mark.usefixtures("setup_overview_page")
 class TestOverview(BaseTest):
+
+    @allure.story("Product Information")
+    @allure.severity(allure.severity_level.CRITICAL)
+    @allure.title("Verify product information is displayed correctly")
     def test_01_validate_product(self):
         product_name = self.overview_page.get_product_name()
         product_desc = self.overview_page.get_desc_product()
@@ -18,6 +25,9 @@ class TestOverview(BaseTest):
         assert product_desc == config.DESC_DEFAULT_PRODUCT
         assert product_qty == "1"
 
+    @allure.story("Payment Information")
+    @allure.severity(allure.severity_level.CRITICAL)
+    @allure.title("Verify payment information is displayed correctly")
     def test_02_validate_payment_info(self):
         payment_label = self.overview_page.payment_info_label()
         payment_info = self.overview_page.get_payment_info()
@@ -27,20 +37,33 @@ class TestOverview(BaseTest):
         assert payment_info == "SauceCard #31337"
         assert payment_label == config.EXPECTED_PAYMENT_LABEL
 
+    @allure.story("Shipping Information")
+    @allure.severity(allure.severity_level.CRITICAL)
+    @allure.title("Verify shipping information is displayed correctly")
     def test_03_validate_shipping_info(self):
         shipping_label = self.overview_page.shipping_info_label()
         shipping_info = self.overview_page.get_shipping_info()
+
         print(f"\nShipping Info: {shipping_info}")
+
         assert shipping_info == "Free Pony Express Delivery!"
         assert shipping_label == config.EXPECTED_SHIPPING_LABEL
 
+    @allure.story("Order Summary")
+    @allure.severity(allure.severity_level.CRITICAL)
+    @allure.title("Verify total price is displayed correctly")
     def test_04_validate_total_price(self):
         price_label = self.overview_page.price_total_label()
         total_price = self.overview_page.get_summary_total()
+
         print(f"\nTotal Price: {total_price}")
+
         assert total_price == config.EXPECTED_TOTAL_PRICE
         assert price_label == config.EXPECTED_PRICE_LABEL
 
+    @allure.story("Price Calculation")
+    @allure.severity(allure.severity_level.CRITICAL)
+    @allure.title("Verify total price calculation is correct")
     def test_05_validate_correct_price(self):
         item_total = self.overview_page.extract_price(
             self.overview_page.get_item_total()
@@ -53,6 +76,7 @@ class TestOverview(BaseTest):
         total = self.overview_page.extract_price(
             self.overview_page.get_summary_total()
         )
+
         print(f"\nItem Total: {item_total}")
         print(f"Tax: {tax}")
         print(f"Expected Total: {item_total + tax}")
@@ -60,12 +84,23 @@ class TestOverview(BaseTest):
 
         assert round(item_total + tax, 2) == total
 
+    @allure.story("Navigation")
+    @allure.severity(allure.severity_level.NORMAL)
+    @allure.title("Verify checkout overview can be cancelled")
     def test_06_cancel_order(self):
         self.overview_page.cancel_order()
+
         assert self.inventory_page.is_open()
 
+
+@allure.feature("Checkout Overview")
 @pytest.mark.usefixtures("setup_overview_page")
 class TestOverviewFinish(BaseTest):
+
+    @allure.story("Order Completion")
+    @allure.severity(allure.severity_level.BLOCKER)
+    @allure.title("Verify order can be completed successfully")
     def test_07_finish_order(self):
         self.overview_page.finish_order()
+
         assert self.order_complete_page.is_open()

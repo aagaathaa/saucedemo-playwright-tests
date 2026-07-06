@@ -1,3 +1,5 @@
+import allure
+
 from playwright.sync_api import Page
 
 from config import config
@@ -19,6 +21,7 @@ class CheckoutPage(BasePage):
     EXPECTED_ERROR_EMPTY_PC = \
         "Error: Postal Code is required"
 
+    @allure.step("Fill checkout information")
     def fill_user_info(self, first_name, last_name, post_code):
         self.fill_text(
             config.FIRST_NAME_FIELD,
@@ -35,11 +38,14 @@ class CheckoutPage(BasePage):
             post_code
         )
 
+    @allure.step("Continue checkout")
     def continue_checkout(self):
         self.click(config.CONTINUE_BTN)
 
+    @allure.step("Cancel checkout")
     def cancel_checkout(self):
         self.click(config.CANCEL_BTN_CHECKOUT)
 
+    @allure.step("Get checkout error message")
     def get_error_message(self):
         return self.get_text(config.ERROR_MESSAGE_CHECKOUT)
