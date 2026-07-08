@@ -1,0 +1,7 @@
+{
+  "name": "GitHub Actions",
+  "type": "github",
+  "reportName": "SauceDemo Playwright Automation Report",
+  "buildName": "Playwright Tests",
+  "buildUrl": "https://github.com/aagaathaa/saucedemo-playwright-tests/actions"
+}

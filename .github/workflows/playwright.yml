@@ -40,6 +40,11 @@ jobs:
       - name: Run Tests
         run: pytest --alluredir=allure-results
 
+      - name: Copy Allure metadata
+        run: |
+          cp allure/environment.properties allure-results/
+          cp allure/executor.json allure-results/
+
       - name: Generate Allure Report
         run: |
           npm install -g allure-commandline
