@@ -1,6 +1,19 @@
+# Local configuration
 #config.py
+
+# IDE
 .idea/
 *.iml
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+
+# Pytest
 .pytest_cache/
 pytest-cache-files*
-__pycache__/
+
+# Allure
+allure-results/
+allure-report/
