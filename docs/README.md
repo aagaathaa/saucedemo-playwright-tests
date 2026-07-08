@@ -290,6 +290,31 @@ allure open allure-report
 
 ---
 
+## Demo
+
+### Test Execution
+
+<p align="center">
+  <img src="docs/test-execution.gif">
+</p>
+
+### Allure Report
+
+<p align="center">
+  <img src="docs/allure-overview.png">
+</p>
+
+<p align="center">
+  <img src="docs/allure-behaviors.png">
+</p>
+
+### GitHub Actions
+
+<p align="center">
+  <img src="docs/github-actions.png">
+</p>
+
+---
 ## Docker
 
 ### Build Image
