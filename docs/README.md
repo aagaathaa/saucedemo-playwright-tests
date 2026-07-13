@@ -300,23 +300,23 @@ allure open allure-report
 ### 🎬 Test Execution
 
 <p align="center">
-  <img src="docs/test-execution.gif">
+  <img src="test-execution.gif">
 </p>
 
 ### ⚡ GitHub Actions
 
 <p align="center">
-  <img src="docs/github-actions.png">
+  <img src="github-actions.png">
 </p>
 
 ### 📊 Allure Report
 
 <p align="center">
-  <img src="docs/allure-overview.png">
+  <img src="allure-overview.png">
 </p>
 
 <p align="center">
-  <img src="docs/allure-behaviors.png">
+  <img src="allure-behaviors.png">
 </p>
 
 ---
