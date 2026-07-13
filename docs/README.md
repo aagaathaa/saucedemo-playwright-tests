@@ -21,7 +21,7 @@ SauceDemo Playwright Test Automation Framework
 
 ---
 
-## Overview
+## 📖 Overview
 
 This project is a UI test automation framework for the SauceDemo application built with **Python**, **Playwright**, and **Pytest**.
 
@@ -29,31 +29,44 @@ The framework follows the **Page Object Model (POM)** design pattern and provide
 
 ---
 
-## Features
+## ⭐ Project Highlights
 
-- Page Object Model (POM) architecture
-- End-to-end UI test automation
-- Cross-browser testing
-- Reusable BasePage
-- Modular Page Objects
-- Docker support
-- GitHub Actions integration
-- Simple test execution
-- Scalable project architecture
+| Metric | Value |
+|:--------|:-----:|
+| Automated UI Tests | 22 |
+| Page Objects | 6 |
+| Browsers | Chromium • Firefox • WebKit |
+| CI/CD | GitHub Actions |
+| Reports | Allure |
+| Containerization | Docker |
 
 ---
 
-## Tech Stack
+## ✨ Features
+
+- Page Object Model (POM)
+- Reusable BasePage
+- Pytest Fixtures
+- Test Data Separation
+- Cross-browser Testing
+- Allure Reporting
+- Docker Support
+- GitHub Actions CI
+
+---
+
+## 🛠 Tech Stack
 
 - Python
-- Playwright
 - Pytest
-- Docker
+- Playwright
+- Allure Report
 - GitHub Actions
+- Docker
 
 ---
 
-## Project Structure
+## 📁 Project Structure
 
 ```text
 .
@@ -79,7 +92,7 @@ The framework follows the **Page Object Model (POM)** design pattern and provide
 └── requirements.txt
 ```
 
-### Directory Overview
+### 📂 Directory Overview
 
 - **config/** – project configuration files.
 - **docs/** – documentation, diagrams, and project assets.
@@ -90,7 +103,7 @@ The framework follows the **Page Object Model (POM)** design pattern and provide
 
 ---
 
-## Application E2E Test Flow
+## 🔄 Application E2E Test Flow
 
 The automated test suite covers the following end-to-end user journey:
 
@@ -105,7 +118,7 @@ The automated test suite covers the following end-to-end user journey:
 
 ---
 
-## Framework Architecture
+## 🏗 Framework Architecture
 
 The framework follows the **Page Object Model (POM)** design pattern.
 
@@ -128,7 +141,7 @@ Browser
 SauceDemo
 ```
 
-### Responsibilities
+### 📌 Responsibilities
 
 - **Tests** contain business logic and assertions.
 - **Page Objects** contain page actions and locators.
@@ -136,15 +149,15 @@ SauceDemo
 
 ---
 
-## Test Coverage
+## ✅ Test Coverage
 
-### Login
+### 🔐 Login
 
 - Valid login
 - Invalid login
 - Locked user validation
 
-### Cart
+### 🛒 Cart
 
 - Add product to cart
 - Remove product from cart
@@ -152,14 +165,14 @@ SauceDemo
 - Remove one product from cart
 - Cart badge validation
 
-### Checkout
+### 💳 Checkout
 
 - Empty first name validation
 - Empty last name validation
 - Empty postal code validation
 - Cancel checkout flow
 
-### Checkout Overview
+### 📦 Checkout Overview
 
 - Product validation
 - Product description validation
@@ -171,7 +184,7 @@ SauceDemo
 - Cancel order flow
 - Finish order flow
 
-### Order Complete
+### 🎉 Order Complete
 
 - Success title validation
 - Success message validation
@@ -180,43 +193,35 @@ SauceDemo
 
 ---
 
-## Setup
+## ⚙️ Setup
 
-### Clone Repository
-
-```bash
-git clone https://github.com/aagaathaa/saucedemo-playwright-tests.git
-
-cd saucedemo-playwright-tests
-```
-
-### Create Virtual Environment
+### 🐍 Create Virtual Environment
 
 ```bash
 python -m venv .venv
 ```
 
-### Activate Virtual Environment
+### ▶️ Activate Virtual Environment
 
-#### Windows
+#### 🪟 Windows
 
 ```bash
 .venv\Scripts\activate
 ```
 
-#### macOS / Linux
+#### 🍎 macOS / 🐧 Linux
 
 ```bash
 source .venv/bin/activate
 ```
 
-### Install Dependencies
+### 📦 Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Install Playwright Browsers
+### 🌐 Install Playwright Browsers
 
 ```bash
 playwright install
@@ -224,15 +229,15 @@ playwright install
 
 ---
 
-## Running Tests
+## ▶️ Running Tests
 
-### Run All Tests
+### 🚀 Run All Tests
 
 ```bash
 pytest
 ```
 
-### Run Specific Test Suites
+### 🎯 Run Specific Test Suites
 
 ```bash
 pytest tests/login
@@ -242,21 +247,21 @@ pytest tests/overview
 pytest tests/order_complete
 ```
 
-### Run Tests in Headed Mode
+### 👀 Run Tests in Headed Mode
 
 ```bash
 pytest --headed
 ```
 
-### Run Tests in Headed Mode with Slow Motion
+### 👀 🐢 Run Tests in Headed Mode with Slow Motion
 
 ```bash
-pytest --headed --slowmo 1000
+pytest --headed --slowmo 500
 ```
 
 ---
 
-## Allure Report
+## 📊 Allure Report
 
 This project uses **Allure Report** for advanced test reporting and execution analysis.
 
@@ -270,12 +275,12 @@ The report includes:
 - Execution timeline
 - Historical trends (when history is preserved)
 
-### Generate Allure Report
+### 📈 Generate Allure Report
 
 Run the helper script:
 
 ```bash
-./run_allure.sh
+make allure
 ```
 
 Or generate the report manually:
@@ -290,15 +295,21 @@ allure open allure-report
 
 ---
 
-## Demo
+## 🎥 Demo
 
-### Test Execution
+### 🎬 Test Execution
 
 <p align="center">
   <img src="docs/test-execution.gif">
 </p>
 
-### Allure Report
+### ⚡ GitHub Actions
+
+<p align="center">
+  <img src="docs/github-actions.png">
+</p>
+
+### 📊 Allure Report
 
 <p align="center">
   <img src="docs/allure-overview.png">
@@ -308,22 +319,16 @@ allure open allure-report
   <img src="docs/allure-behaviors.png">
 </p>
 
-### GitHub Actions
-
-<p align="center">
-  <img src="docs/github-actions.png">
-</p>
-
 ---
-## Docker
+## 🐳 Docker
 
-### Build Image
+### 🏗 Build Image
 
 ```bash
 docker build -t saucedemo-tests .
 ```
 
-### Run Tests
+### ▶️ Run Tests
 
 ```bash
 docker run saucedemo-tests
@@ -331,32 +336,26 @@ docker run saucedemo-tests
 
 ---
 
-## CI/CD
+## 🔄 CI/CD
 
-The GitHub Actions workflow automatically:
 
-- Sets up the Python environment
-- Installs project dependencies
+The GitHub Actions pipeline automatically:
+
+- Installs dependencies
 - Installs Playwright browsers
-- Executes automated UI tests
+- Executes the test suite
+- Generates Allure Report
+- Deploys Allure Report to GitHub Pages
 
 ---
 
-## Design Pattern
+## 👩🏼‍💻 Author
 
-This framework follows the **Page Object Model (POM)** design pattern.
+### **Agatha Abakumova**
 
-- BasePage contains reusable Playwright methods.
-- Each application page has its own Page Object.
-- Tests contain only business logic and assertions.
-- Fixtures prepare the application state before test execution.
+#### QA Engineer
 
----
+Python • Playwright • Pytest • Allure • GitHub Actions
 
-## Author
-
-**Agatha Abakumova**
-
-QA Engineer
-
-Python • Playwright • Pytest
+- GitHub: https://github.com/aagaathaa
+- LinkedIn: https://www.linkedin.com/in/agatha-abakumova-537322231/

@@ -13,22 +13,22 @@ class BasePage:
         return self.page.locator(locator)
 
     def fill_text(self, locator, text):
-        self.page.locator(locator).highlight()
+        # self.page.locator(locator).highlight()
         self.page.locator(locator).fill(text)
 
     def clear_text(self, locator):
         self.page.locator(locator).clear()
 
     def click(self, locator):
-        self.page.locator(locator).highlight()
+        # self.page.locator(locator).highlight()
         self.page.locator(locator).click()
 
     def select_option(self, locator, text):
-        self.page.locator(locator).highlight()
+        # self.page.locator(locator).highlight()
         self.page.locator(locator).select_option(text)
 
     def get_text(self, locator):
-        self.page.locator(locator).highlight()
+        # self.page.locator(locator).highlight()
         text = self.page.locator(locator).inner_text()
         return text
 

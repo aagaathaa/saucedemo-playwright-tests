@@ -13,6 +13,12 @@ TWITTER_LINK = "https://x.com/saucelabs"
 FACEBOOK_LINK = "https://www.facebook.com/saucelabs"
 LINKDIN_LINK = "https://www.linkedin.com/company/sauce-labs/"
 
+VIEWPORT = {"width": 1600, "height": 900}
+VIDEO_OPTIONS = {
+    "record_video_dir": "videos/",
+    "record_video_size": VIEWPORT,
+}
+
 # =========================
 # Users data
 # =========================

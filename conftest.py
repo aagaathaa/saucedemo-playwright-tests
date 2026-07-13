@@ -1,7 +1,15 @@
 # In case you want to open browser before each class
 import pytest
 
-from config.config import BASE_URL, DEFAULT_PRODUCT, VALID_FIRST_NAME, VALID_LAST_NAME, VALID_POST_CODE
+from config.config import (
+    BASE_URL,
+    DEFAULT_PRODUCT,
+    VALID_FIRST_NAME,
+    VALID_LAST_NAME,
+    VALID_POST_CODE,
+    VIEWPORT,
+    VIDEO_OPTIONS,
+)
 from pages.CartPage import CartPage
 from pages.CheckoutPage import CheckoutPage
 from pages.InventoryPage import InventoryPage
@@ -9,21 +17,14 @@ from pages.LoginPage import LoginPage
 from pages.OrderCompletePage import OrderCompletePage
 from pages.OverviewPage import OverviewPage
 
-
-# Old fixture, disabled for now
-# @pytest.fixture(scope="class", autouse=True)
-# def setup_page_class(request, browser):
-#     request.cls.page = browser.new_page()
-#     request.cls.page.goto("https://www.saucedemo.com/")
-#     request.cls.login_page = LoginPage(request.cls.page)
-#     yield
-#     request.cls.page.close()
-#     browser.close()
-
-
 @pytest.fixture
 def setup_login_page(request, browser):
-    page = browser.new_page()
+    context = browser.new_context(
+        viewport=VIEWPORT,
+        **VIDEO_OPTIONS
+    )
+
+    page = context.new_page()
     page.goto(BASE_URL)
 
     request.cls.page = page
@@ -31,12 +32,17 @@ def setup_login_page(request, browser):
 
     yield
 
-    page.close()
+    context.close()
 
 
 @pytest.fixture(scope="class")
 def setup_inventory_and_cart(request, browser):
-    page = browser.new_page()
+    context = browser.new_context(
+    viewport=VIEWPORT,
+    **VIDEO_OPTIONS
+)
+
+    page = context.new_page()
     page.goto(BASE_URL)
 
     request.cls.page = page
@@ -49,11 +55,16 @@ def setup_inventory_and_cart(request, browser):
     request.cls.login_page.standard_user()
 
     yield
-    page.close()
+    context.close()
 
 @pytest.fixture(scope="class")
 def setup_checkout_page(request, browser):
-    page = browser.new_page()
+    context = browser.new_context(
+    viewport=VIEWPORT,
+    **VIDEO_OPTIONS
+)
+
+    page = context.new_page()
     page.goto(BASE_URL)
 
     request.cls.page = page
@@ -70,11 +81,16 @@ def setup_checkout_page(request, browser):
 
     yield
 
-    page.close()
+    context.close()
 
 @pytest.fixture(scope="class")
 def setup_overview_page(request, browser):
-    page = browser.new_page()
+    context = browser.new_context(
+    viewport=VIEWPORT,
+    **VIDEO_OPTIONS
+)
+
+    page = context.new_page()
     page.goto(BASE_URL)
 
     request.cls.page = page
@@ -96,11 +112,16 @@ def setup_overview_page(request, browser):
 
     yield
 
-    page.close()
+    context.close()
 
 @pytest.fixture(scope="class")
 def setup_order_complete_page(request, browser):
-    page = browser.new_page()
+    context = browser.new_context(
+    viewport=VIEWPORT,
+    **VIDEO_OPTIONS
+)
+
+    page = context.new_page()
     page.goto(BASE_URL)
 
     request.cls.page = page
@@ -122,4 +143,4 @@ def setup_order_complete_page(request, browser):
 
     yield
 
-    page.close()
+    context.close()
